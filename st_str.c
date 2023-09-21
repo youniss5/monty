@@ -48,11 +48,11 @@ void p_str(stack_t **st, __attribute__((unused))unsigned int ln)
 }
 
 /**
- * rotatel - a function that rotates the first node of stack to the end.
+ * rotate1 - a function that rotates the first node of stack to the end.
  * @st: a pointer to the pointer that points to the top node of stack.
  * @ln: Int (the line number of the operation code)
  */
-void rotatel(stack_t **st, __attribute__((unused))unsigned int ln)
+void rotate1(stack_t **st, __attribute__((unused))unsigned int ln)
 {
 	stack_t *tm;
 

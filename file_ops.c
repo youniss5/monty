@@ -96,8 +96,8 @@ void stack_func(char *optcode, char *val, int ln, int format)
 		{"div", nodes_div},
 		{"mul", nodes_product},
 		{"mod", nodes_remainder},
-		{"pchar", print_char},
-		{"pstr", print_str},
+		{"pchar", p_char},
+		{"pstr", p_str},
 		{"rotl", rotate1},
 		{"rotr", rotate2},
 		{NULL, NULL}
