@@ -1,80 +1,44 @@
 #include "monty.h"
 
 /**
- * st_node_add - adds a new node to the stack.
- * @new_node: a pointer to the new node.
- * @l_num: integer representing the line number of of the optcode.
+ * nodes_product - inserts the multiplication of two top elements of the stack
+ * @st: a pointer to the pointer that points to the top node of stack.
+ * @l_num: Int (the line number of the operation code)
  */
-void st_node_add(stack_t **new_node, __attribute__((unused))unsigned int l_num)
+void nodes_product(stack_t **st, unsigned int l_num)
 {
-	stack_t *tmp;
+	int result;
 
-	if (new_node == NULL || *new_node == NULL)
-	{
-		exit(EXIT_FAILURE);
-	}
-	if (head == NULL)
-	{
-		head = *new_node;
-		return;
-	}
-	tmp = head;
-	head = *new_node;
-	head->next = tmp;
-	tmp->prev = head;
+	if (st == NULL || *st == NULL || (*st)->next == NULL)
+		m_error(8, l_num, "mul");
+
+	(*st) = (*st)->next;
+	result = (*st)->n * (*st)->prev->n;
+	(*st)->n = result;
+	free((*st)->prev);
+	(*st)->prev = NULL;
 }
 
 
 /**
- * st_print - a function that prints the stack integers.
- * @st:a pointer to a pointer pointing to the top node of the stack.
- * @l_num: line number of the optcode.
+ * nodes_remainder - inserts the moduls of the top two elements of stack.
+ * @st: a pointer to the pointer that points to the top node of stack
+ * @l_num: Int (the line number of the operation code).
  */
-void st_print(stack_t **st, unsigned int l_num)
+void nodes_remainder(stack_t **st, unsigned int l_num)
 {
-	stack_t *tmp;
+	int result;
 
-	(void) l_num;
-	if (st == NULL)
-		exit(EXIT_FAILURE);
-	tmp = *st;
-	while (tmp != NULL)
-	{
-		printf("%d\n", tmp->n);
-		tmp = tmp->next;
-	}
-}
+	if (st == NULL || *st == NULL || (*st)->next == NULL)
 
-/**
- * st_pop - removes the top node of the stack.
- * @st: a pointer to a pointer pointing to the top node of the stack.
- * @l_num: integer representing the line number of of the optcode.
- */
-void st_pop(stack_t **st, unsigned int l_num)
-{
-	stack_t *tmp;
+		m_error(8, l_num, "mod");
 
-	if (st == NULL || *st == NULL)
-	{
-		m_error(7, l_num);
-	}
-	tmp = *st;
-	*st = tmp->next;
-	if (*st != NULL)
-	{
-		(*st)->prev = NULL;
-	}
-	free(tmp);
-}
 
-/**
- * top_print - a function that prints the top node of the stack.
- * @st: a pointer to a pointer pointing to the top node of the stack.
- * @l_num: Integer representing the line number of of the optcode.
- */
-void top_print(stack_t **st, unsigned int l_num)
-{
-	if (st == NULL || *st == NULL)
-		m_error(6, l_num);
-	printf("%d\n", (*st)->n);
+	if ((*st)->n == 0)
+		m_error(9, l_num);
+	(*st) = (*st)->next;
+	result = (*st)->n % (*st)->prev->n;
+	(*st)->n = result;
+	free((*st)->prev);
+	(*st)->prev = NULL;
 }

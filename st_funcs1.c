@@ -63,15 +63,15 @@ void nop(stack_t **st, unsigned int l_num)
  */
 void nodes_subtract(stack_t **st, unsigned int l_num)
 {
-	int sub;
+	int result;
 
 	if (st == NULL || *st == NULL || (*st)->next == NULL)
 	{
 		m_error(8, l_num, "sub");
 	}
 	(*st) = (*st)->next;
-	sub = (*st)->n - (*st)->prev->n;
-	(*st)->n = sub;
+	result = (*st)->n - (*st)->prev->n;
+	(*st)->n = result;
 	free((*st)->prev);
 	(*st)->prev = NULL;
 }
@@ -83,7 +83,7 @@ void nodes_subtract(stack_t **st, unsigned int l_num)
  */
 void nodes_div(stack_t **st, unsigned int l_num)
 {
-	int div;
+	int result;
 
 	if (st == NULL || *st == NULL || (*st)->next == NULL)
 	{
@@ -92,8 +92,8 @@ void nodes_div(stack_t **st, unsigned int l_num)
 	if ((*st)->n == 0)
 		m_error(9, l_num);
 	(*st) = (*st)->next;
-	div = (*st)->n / (*st)->prev->n;
-	(*st)->n = div;
+	result = (*st)->n / (*st)->prev->n;
+	(*st)->n = result;
 	free((*st)->prev);
 	(*st)->prev = NULL;
 }

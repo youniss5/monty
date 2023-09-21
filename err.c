@@ -42,7 +42,7 @@ void s_error(int err_c, ...)
 		default:
 			break;
 	}
-	free_nodes();
+	ffree_nodes();
 	exit(EXIT_FAILURE);
 }
 
@@ -83,7 +83,7 @@ void m_error(int err_c, ...)
 		default:
 			break;
 	}
-	free_nodes();
+	ffree_nodes();
 	exit(EXIT_FAILURE);
 }
 
@@ -111,6 +111,6 @@ void str_error(int err_c, ...)
 		default:
 			break;
 	}
-	free_nodes();
+	ffree_nodes();
 	exit(EXIT_FAILURE);
 }

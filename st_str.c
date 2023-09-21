@@ -1,8 +1,8 @@
 #include "monty.h"
 
 /**
- * p_char - function that Prints (ASCII value).
- * @st: Pointer to the pointer that points to the top node of stack
+ * p_char - a function that Prints (ASCII value).
+ * @st: a pointer to the pointer that points to the top node of stack.
  * @l_num: Int (the line number of the operation code)
  */
 void p_char(stack_t **st, unsigned int l_num)
@@ -10,8 +10,9 @@ void p_char(stack_t **st, unsigned int l_num)
 	int ascii;
 
 	if (st == NULL || *st == NULL)
+	{
 		str_error(11, l_num);
-
+	}
 	ascii = (*st)->n;
 	if (ascii < 0 || ascii > 127)
 		str_error(10, l_num);
@@ -19,8 +20,8 @@ void p_char(stack_t **st, unsigned int l_num)
 }
 
 /**
- * p_str - Prints a string.
- * @st: Pointer to the pointer that points to the top node of stack
+ * p_str - a function that Prints a string.
+ * @st: a pointer to the pointer that points to the top node of stack.
  * @ln: Int (the line number of the operation code)
  */
 void p_str(stack_t **st, __attribute__((unused))unsigned int ln)
@@ -47,8 +48,8 @@ void p_str(stack_t **st, __attribute__((unused))unsigned int ln)
 }
 
 /**
- * rotatel - function that rotates the first node of stack to the end.
- * @st: Pointer to the pointer that points to the top node of stack.
+ * rotatel - a function that rotates the first node of stack to the end.
+ * @st: a pointer to the pointer that points to the top node of stack.
  * @ln: Int (the line number of the operation code)
  */
 void rotatel(stack_t **st, __attribute__((unused))unsigned int ln)
@@ -69,10 +70,9 @@ void rotatel(stack_t **st, __attribute__((unused))unsigned int ln)
 	(*st)->prev = NULL;
 }
 
-
 /**
- * rotate2 - function that rotates last node of stack to the top.
- * @st: Pointer to the pointer that points to the top node of stack.
+ * rotate2 - a function that rotates last node of stack to the top.
+ * @st: a pointer to the pointer that points to the top node of stack.
  * @ln: Int (the line number of the operation code).
  */
 void rotate2(stack_t **st, __attribute__((unused))unsigned int ln)

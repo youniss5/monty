@@ -98,8 +98,8 @@ void stack_func(char *optcode, char *val, int ln, int format)
 		{"mod", nodes_remainder},
 		{"pchar", print_char},
 		{"pstr", print_str},
-		{"rotl", rotl},
-		{"rotr", rotr},
+		{"rotl", rotate1},
+		{"rotr", rotate2},
 		{NULL, NULL}
 	};
 
